@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Aaron Godfrey</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Make sure your CSS is linked -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="w3-sidebar w3-collapse w3-light-grey" id="mySidebar" style="width: 350px; position: fixed;">
+    <div class="w3-container text-center mt-4">
+      <img src="/assets/Profile.jpg" alt="Profile Picture" class="img-fluid square" style="width: 150px; height: 150px; object-fit: cover;">
+      <h4><b>Aaron Godfrey</b></h4>
+      <p class="w3-text-grey">Computer Science</p>
+      
+    </div>
+    <div class="w3-bar-block">
+      <!-- Sidebar links to different sections -->
+      <a href="#project1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">Project 1</a> 
+      <a href="#project2" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class=" fa-fw w3-margin-right"></i>Project 2</a> 
+      <a href="#project3" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class=" fa-fw w3-margin-right"></i>Project 3</a>
+    </div>
+  </div>
+
+  <!-- Nav Bar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="margin-left: 350px;">
+    <div class="container-fluid">
+      <!-- Navbar links -->
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link text-white" href="#" onclick="loadPage('about.html', this)">About Me</a>
+        <a class="nav-link text-white" href="#" onclick="loadPage('software.html', this)">Software Development</a>
+        <a class="nav-link text-white" href="#" onclick="loadPage('data.html', this)">Data Science</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Dynamic content loads here -->
+  <div id="content" style="padding-top: 80px;"></div>
+
+  <!-- Link to external JS files -->
+  <script src="loader.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
