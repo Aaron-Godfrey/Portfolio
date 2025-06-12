@@ -116,9 +116,8 @@ html, body {
   /* Carousel */
   .carousel {
     width: 100%;  /* Adjust to your preferred width, e.g., 100% for full width */
-    max-width: 800px; /* Set a maximum width */
     height: 400px; /* Set a fixed height */
-    overflow: hidden; /* Hide anything that overflows */
+    position: relative;
   }
   
   .carousel-inner {
@@ -127,8 +126,8 @@ html, body {
   
   .carousel-item img {
     width: 100%;  /* Make sure the image fills the container's width */
-    height: 100%; /* Make sure the image fills the container's height */
-    object-fit: cover; /* Ensures the image covers the area without stretching */
+    height: auto; /* Make sure the image fills the container's height */
+    object-fit: contain; /* Ensures the image covers the area without stretching */
   }
   
   .carousel-control-prev-icon,
@@ -178,4 +177,5 @@ html, body {
     padding: 20px;  /* Optional: Adds some padding inside each section */
     margin-bottom: 20px;  /* Optional: Adds space between sections */
     background-color: white;  /* Optional: Ensures a white background for each section */
+    scroll-margin-top: 100px;
   }
