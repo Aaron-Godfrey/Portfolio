@@ -5,7 +5,7 @@
       <div class="w3-container text-center mt-4">
         <img src="/assets/Profile.jpg" alt="Profile Picture" class="img-fluid square" style="width: 150px; height: 150px; object-fit: cover;">
         <h4><b>Aaron Godfrey</b></h4>
-        <p class="w3-text-grey">Computer Science</p>
+        <p class="w3-text-grey">Passionate software developer with a background in data science</p>
         
       </div>
       <div class="w3-bar-block">
@@ -14,7 +14,15 @@
         <a href="#project2" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class=" fa-fw w3-margin-right"></i>NASA Surface Data VR</a> 
         <a href="#project3" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class=" fa-fw w3-margin-right"></i>Arachnoid</a>
       </div>
+        <div class="container">
+          <h2 class="text-center">Contact</h2>
+        <div class="social-icons text-center" style="font-size:5em;padding:50px">
+          <a href="https://github.com/Aaron-Godfrey" target="_blank"><i style="font-size:50px" class="fa">&#xf09b;</i></i></a>
+          <a href="https://www.linkedin.com/in/aaron-godfrey-02a384213/" target="_blank"><i style="font-size:50px" class="fa">&#xf08c;</i></a>
+        </div>
+        </div>
     </div>
+    
 <!-- Link to external JS file -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -33,13 +41,16 @@
     <div id="carouselProject1" class="carousel slide project-carousel" data-ride="carousel" data-interval="10000">
       <div class="carousel-inner">
         <div class="carousel-item active" data-caption-text="">
-          <img src="/assets/gdPro1-1.jpg" class="d-block w-100" alt="Project 1 Image 1">
+          <img src="/assets/pharminiInfoScreen.png" class="d-block w-100" alt="Project 1 Image 1">
         </div>
         <div class="carousel-item" data-caption-text="">
-          <img src="/assets/gdPro1-2.png" class="d-block w-100" alt="Project 1 Image 2">
+          <img src="/assets/pharminiUpgrade.png" class="d-block w-100" alt="Project 1 Image 2">
         </div>
         <div class="carousel-item" data-caption-text="">
-          <img src="/assets/gdPro1-3.jpg" class="d-block w-100" alt="Project 1 Image 3">
+          <img src="/assets/pharminiProduction.png" class="d-block w-100" alt="Project 1 Image 3">
+        </div>
+        <div class="carousel-item" data-caption-text="">
+          <img src="/assets/pharminiReport.png" class="d-block w-100" alt="Project 1 Image 3">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselProject1" role="button" data-slide="prev">
@@ -59,7 +70,16 @@
 </div>
     <!-- Text + Skills/Tools -->
     <div class="col-md-6">
-      <p>This project explores interactive dashboards using real-time APIs and custom visualizations...</p>
+      <p>Pharmini is a grant-funded research project at ASU that aims to inspire young adults to think in an civil engineering mindset through a pharmaceutical context. 
+         The software is a city-building style game where players manage a network of randomly generated hospitals and fulfill their needs by building nearby factories and labs to produce materials and orders.
+      </p>
+      <p>My Contributions to the project include:</p>
+      <ul>
+        <li>Creating interactive context menus to carry out actions for a given building</li>
+        <li>Visually representing backend functions and properties in easy-to-understand formats</li>
+        <li>Adding quality of life adjustments to keep gameplay intuitive</li>
+        <li>Designed Glossary tab to help onboard new players</li>
+      </ul>
 
       <div class="row">
         <!-- Skills Column -->
@@ -93,13 +113,13 @@
         <div class="col-md-6">
             <div id="carouselProject2" class="carousel slide project-carousel" data-ride="carousel" data-interval="10000">
               <div class="carousel-inner">
-                <div class="carousel-item active" data-caption-text="The player starts in this area where they can learn about Mars as well as the NASA Psyche Mission.">
+                <div class="carousel-item active" data-caption-text="The player starts in this area where they can learn about the NASA Psyche Mission with various Mars factoids sprinked in.">
                   <img src="/assets/hubExhibit.png" class="d-block w-100" alt="Project 1 Image 1">
                 </div>
                 <div class="carousel-item" data-caption-text="In this area, players can control the Mars Curiosity Rover as well as scour the surface for Martian minerals.">
                   <img src="/assets/roverMiniGame.png" class="d-block w-100" alt="Project 1 Image 2">
                 </div>
-                <div class="carousel-item" data-caption-text="This is a demo of the JMARS API terrain generation.">
+                <div class="carousel-item" data-caption-text="This is a demo of the JMARS API terrain generation. Provided by Planetary Parfait, we used the framework to help generate our Martian surface to be as environmentally accurate as possible.">
                   <img src="/assets/JMARSTerrainGenerator.png" class="d-block w-100" alt="Project 1 Image 3">
                 </div>
               </div>
@@ -120,7 +140,15 @@
 
     <!-- Text + Skills/Tools -->
     <div class="col-md-6">
-      <p>This project explores interactive dashboards using real-time APIs and custom visualizations...</p>
+      <p>NASA Surface Data VR is an ASU and NASA joint project where students were tasked to create a VR experience for the general public to generate excitement and educate users about future space exploration. 
+         The educational program aims to give users a one-of-a-kind experience, simulating various activities on the surface of Mars as well as informing players about the ongoing Psyche mission that inspired this project.
+      </p>
+      <p>My Contributions to the project include:</p>
+      <ul>
+        <li>Designing various activies to make the learning process fun</li>
+        <li>Developing a minigame where the user controls the Curiosity Rover on the Martian surface</li>
+        <li>Curating a main hub that acts as a museum exhibit dedicated to the Psyche mission</li>
+      </ul>
 
       <div class="row">
         <!-- Skills Column -->
@@ -183,7 +211,15 @@
 
     <!-- Text + Skills/Tools -->
     <div class="col-md-6">
-      <p>This project explores interactive dashboards using real-time APIs and custom visualizations...</p>
+      <p>Arachnoid is a couch co-op arena shooter where players take control of tanks with various loadouts and try to defeat each other. 
+         Developed over the course of four months, the project served as the first iteration of an ASU summer course where students would come together to form a game studio and create a prototype .
+      </p>
+      <p>My Contributions to the project include:</p>
+      <ul>
+        <li>Developing custom player controllers for each tank type to handle physics and movement abilities</li>
+        <li>Handled coding framework for adding/storing gameplay/weapon modifiers on each character playing</li>
+        <li>Creating Menu and Lobby scenes with loadout customization options</li>
+      </ul>
 
       <div class="row">
         <!-- Skills Column -->

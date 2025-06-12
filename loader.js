@@ -49,9 +49,9 @@ function loadPage(page, link) {
 
 // Load About Me by default
 window.onload = () => {
-  const firstNavLink = document.querySelector('a.nav-link');  // Get the first nav link (About Me)
+  const firstNavLink = document.querySelector('a.nav-link');  // Get the first nav link (About Me) !!! Changed to software
   if (firstNavLink) {
-    loadPage('about.html', firstNavLink);  // Load the default page (about.html)
+    loadPage('software.html', firstNavLink);  // Load the default page (about.html) !!! Changed to software
   }
 };
 
