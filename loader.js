@@ -1,10 +1,11 @@
-// Attach carousel caption update for all carousels
+
+// Setup carousel captions for all Bootstrap carousels on the page
 function setupAllCarouselCaptions() {
-  $('.carousel').each(function () {  // Select all carousel elements on the page
-    const carousel = $(this);  // Current carousel
+  $('.carousel').each(function () {
+    const carousel = $(this);
     const captionText = carousel.parent().find('.carousel-caption-below .caption-text');
 
-    // Update the caption when the carousel slide changes
+    // Update caption on slide change
     carousel.on('slide.bs.carousel', function (e) {
       const newCaption = $(e.relatedTarget).data('caption-text');
       if (newCaption) {
@@ -12,16 +13,16 @@ function setupAllCarouselCaptions() {
       }
     });
 
-    // Set initial caption (in case it's not slide-triggered yet)
+    // Set initial caption
     const activeSlide = carousel.find('.carousel-item.active');
     if (activeSlide.length) {
       const initialCaption = activeSlide.data('caption-text');
-      captionText.text(initialCaption || '');  // Use empty string if no caption is found
+      captionText.text(initialCaption || '');
     }
   });
 }
 
-// Load pages dynamically and add 'active' class to clicked link
+// Load page content dynamically into #content and update active nav link
 function loadPage(page, link) {
   return fetch(page)
     .then(response => {
@@ -29,18 +30,17 @@ function loadPage(page, link) {
       return response.text();
     })
     .then(data => {
-      // Update content of the #content div with the fetched page data
       document.getElementById('content').innerHTML = data;
 
-      // Remove 'active' class from all links
-      let navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(l => l.classList.remove('active'));
+      // Remove 'active' from all nav links
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
 
-      // Add 'active' class to the clicked link
+      // Add 'active' to the clicked/loaded link
       if (link) link.classList.add('active');
 
-      // Re-initialize carousel caption listeners after slight delay to ensure DOM is ready
+      // Initialize Bootstrap carousels and captions after content is loaded
       setTimeout(() => {
+        $('.carousel').carousel();
         setupAllCarouselCaptions();
       }, 100);
     })
@@ -50,34 +50,26 @@ function loadPage(page, link) {
     });
 }
 
+// Handle changes in URL hash to load appropriate page and scroll
 function handleHashChange() {
-  const hash = window.location.hash.substring(1); // e.g., "proj1" or "project1"
+  const hash = window.location.hash.substring(1); // remove '#'
 
-  // If no hash, load default page and highlight first nav link
-  if (!hash) {
-    const firstNavLink = document.querySelector('a.nav-link');
-    if (firstNavLink) {
-      loadPage('software.html', firstNavLink);
-    }
-    return;
-  }
-
-  // Map hash prefixes or values to page files
+  // Determine which page to load based on hash prefix
   let pageFile;
   if (hash.startsWith('project')) {
     pageFile = 'data.html';
   } else if (hash.startsWith('proj')) {
     pageFile = 'software.html';
   } else {
-    // Fallback default
+    // Default page
     pageFile = 'software.html';
   }
 
-  // Find nav link whose href matches the page file (assuming nav links use href="software.html" etc.)
+  // Find nav link with matching data-page attribute
   const navLinkToActivate = Array.from(document.querySelectorAll('a.nav-link'))
-    .find(link => link.getAttribute('href') === pageFile);
+    .find(link => link.dataset.page === pageFile);
 
-  // Load the page, then scroll to the element with the hash ID inside the loaded content
+  // Load the page, then scroll to the element with the hash ID
   loadPage(pageFile, navLinkToActivate).then(() => {
     if (hash) {
       const target = document.getElementById(hash);
@@ -88,6 +80,35 @@ function handleHashChange() {
   });
 }
 
+// Called when nav link is clicked — loads page, updates active state, scrolls if needed
+function onNavLinkClick(page, link, anchor = '') {
+  // Update active class on nav links
+  document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+  link.classList.add('active');
+
+  // Scroll to top immediately before loading
+  window.scrollTo({ top: 0, behavior: 'auto' });
+
+  // Load page content
+  loadPage(page, link).then(() => {
+    // Scroll to anchor if provided
+    if (anchor) {
+      setTimeout(() => {
+        const el = document.getElementById(anchor);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    }
+  });
+
+  // Update URL hash without jumping
+  history.replaceState(null, '', anchor ? `#${anchor}` : '');
+
+  return false; // Prevent default link behavior
+}
+
 // Listen for page load and hash changes
 window.addEventListener('load', handleHashChange);
 window.addEventListener('hashchange', handleHashChange);
+
